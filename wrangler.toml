@@ -1,0 +1,28 @@
+name = "pastebin-worker-2"
+compatibility_date = "2023-10-30"
+compatibility_flags = ["nodejs_compat"]
+
+account_id = "516d0a360ccdea88dd79e9cf5d2bc3aa"
+main = "src/index.ts"
+workers_dev = false
+
+[vars]
+ENVIRONMENT = "production"
+BASE_URL = "https://share.pausi.id"
+
+[site]
+bucket = "./static/dist"
+
+# 如果不使用自定义域名，将下面的代码注释掉
+[[routes]]
+pattern = "as.al"
+custom_domain = true
+
+[[r2_buckets]]
+binding = 'BUCKET'
+bucket_name = "pastes2"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pastebins2"
+database_id = "f09e2a87-e96a-4ad6-b6a3-7d9d82f642d3"
